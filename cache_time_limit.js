@@ -1,7 +1,6 @@
 const TimeLimitedCache = function() {
     this.cache = new Map();  // Using Map so we don't need a size variable
 };
-
 TimeLimitedCache.prototype.set = function(key, value, duration) {
     let found = this.cache.has(key);
     if (found) clearTimeout(this.cache.get(key).ref);  // Cancel previous timeout
